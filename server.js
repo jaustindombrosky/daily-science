@@ -11,7 +11,6 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 4000;
 
-// Parse application/x-www-form-urlencoded
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -64,7 +63,6 @@ require("./routes/html.js")(app);
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "views/index.html"));
 });
-
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
